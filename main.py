@@ -4,18 +4,17 @@ import time
 import multiprocessing
 import datetime
 import random
-# Import 'keep_alive' assuming it's a custom module or part of your project.
+# copyright to poketwolover69
 import keep_alive
-# Import 'discum' assuming it's a custom module or an external library.
-# Please make sure to install the 'discum' module using the appropriate command (e.g., pip).
+# copyright to poketwolover69
+# copyright to poketwolover69
 import discum
 
-version = 'v2.6'
+version = '0.0'
 
-
-channel_id = 1234859064677105710
-catch_id = 1234859064677105710
-
+owner_id
+channel_id = 
+catch_id = 
 with open('pokemon.txt', 'r', encoding='utf8') as file:
     pokemon_list = file.read()
 with open('legendary.txt', 'r') as file:
@@ -32,7 +31,7 @@ mythical = 0
 
 poketwo_id = '716390085896962058'
 bot = discum.Client(
-    token='OTY1NDA0NDYwMTM2NDE1Mjk0.GeGYxK.dwkJIaxnKqFPPk_nJcnNfT-GI_ARg79RKZskR4', log=False)
+    token='', log=False)
 keep_alive.keep_alive()
 
 
@@ -51,9 +50,9 @@ def solve(message):
 
 def spam():
     while True:
-        hash = random.getrandbits(128)
-        bot.sendMessage('899654901553070091', hash)
-        intervals = [3.0, 3.0, 3.0, 3.0, 3.0, 3.0]
+        content = random.getrandbits(128)
+        bot.sendMessage('', content)
+        intervals = [3.0, 3.0, 3.0, 3.0] #best interval for spawns in poketwo bot
         time.sleep(random.choice(intervals))
 
 
@@ -76,7 +75,7 @@ def log(string):
 @bot.gateway.command
 def on_ready(resp):
     if resp.event.ready_supplemental:
-        log(f'Logged into account: ')
+        log(f'the account is now active!')
 
 
 @bot.gateway.command
@@ -153,11 +152,11 @@ def on_message(resp):
                         stop(spam_process)
                         log('Captcha Detected; Autocatcher Paused. Press enter to restart.')
                         input()
-                        bot.sendMessage(catch_id, '<@716390085896962058> h')
+                        bot.sendMessage(catch_id, message=f'<@{owner_id}> please solve the captcha')
 
 
 if __name__ == '__main__':
     print(
-        f'Pokétwo Autocatcher {version}\nA#Pokétwo Autocatcher# \nEvent Log:')
+        f'poketwo autocatcher has been started.\nautocatcher version: {version}\nevent log:')
     spam_process = start_spam()
     bot.gateway.run(auto_reconnect=True)
