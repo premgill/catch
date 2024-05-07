@@ -12,7 +12,7 @@ import discum
 
 version = '0.0'
 
-owner_id
+owner_id = 
 channel_id = 
 catch_id = 
 with open('pokemon.txt', 'r', encoding='utf8') as file:
@@ -75,7 +75,7 @@ def log(string):
 @bot.gateway.command
 def on_ready(resp):
     if resp.event.ready_supplemental:
-        log(f'the account is now active!')
+        log(f'the account is now active!\nlogged into: {bot.gateway.session.user}')
 
 
 @bot.gateway.command
@@ -154,6 +154,10 @@ def on_message(resp):
                         input()
                         bot.sendMessage(catch_id, message=f'<@{owner_id}> please solve the captcha')
 
+
+def say(*args,**kwargs):
+    return
+bot.sendMessage(catch_id, message=f'say')
 
 if __name__ == '__main__':
     print(
